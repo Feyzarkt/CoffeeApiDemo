@@ -1,16 +1,19 @@
 package com.example.coffeeapidemo.ui
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.coffeeapidemo.data.local.CoffeeDB
 import com.example.coffeeapidemo.data.model.CoffeeResponseItem
 import com.example.coffeeapidemo.data.remote.ApiService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainViewModel: ViewModel() {
-
+class MainViewModel(app: Application): AndroidViewModel(app) {
+    private val coffeeDb = CoffeeDB.getInstance(app)
     private val apiService = ApiService.create()
 
     private val _coffeeData = MutableLiveData<List<CoffeeResponseItem>?>()
@@ -25,17 +28,16 @@ class MainViewModel: ViewModel() {
                 if (coffeeResponse.isSuccessful) {
                     val response = coffeeResponse.body()
                     _coffeeData.value = response
-                    /*Thread(Runnable {
-                        weatherDb.weatherDao().deleteAll()
-                        response?.let { weatherDb.weatherDao().insert(it) }
-                    }).start()*/
+                    Thread {
+                        response?.let { coffeeDb.coffeeDao().insert(it) }
+                    }.start()
                 }
             }
             override fun onFailure(call: Call<List<CoffeeResponseItem>>, t: Throwable) {
-                /*Thread(Runnable {
-                    val weatherList = weatherDb.weatherDao().getAll()
-                    _coffeeData.postValue(weatherList)
-                }).start()*/
+                Thread {
+                    val coffeeList = coffeeDb.coffeeDao().getAll()
+                    _coffeeData.postValue(coffeeList)
+                }.start()
             }
         })
     }
