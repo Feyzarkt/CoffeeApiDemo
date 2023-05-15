@@ -1,8 +1,5 @@
 package com.example.coffeeapidemo.data.repository
 
-import android.app.Application
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.example.coffeeapidemo.data.local.CoffeeDB
 import com.example.coffeeapidemo.data.model.CoffeeResponseItem
 import com.example.coffeeapidemo.data.remote.ApiService
@@ -10,9 +7,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CoffeeRepository(private val app: Application) {
-    private val coffeeDb = CoffeeDB.getInstance(app)
-    private val apiService = ApiService.create()
+class CoffeeRepository(private val coffeeDb: CoffeeDB, private val apiService: ApiService) {
 
     fun getAllData(callback: (List<CoffeeResponseItem>?)-> Unit) {
         apiService.getCoffeeResult().enqueue(object : Callback<List<CoffeeResponseItem>> {
