@@ -2,25 +2,24 @@ package com.example.coffeeapidemo.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.coffeeapidemo.data.local.CoffeeDB
 import com.example.coffeeapidemo.data.remote.ApiService
 import com.example.coffeeapidemo.data.repository.CoffeeRepository
 import com.example.coffeeapidemo.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var viewModel: MainViewModel
+    private val viewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
-
-        val repository = CoffeeRepository(CoffeeDB.getInstance(this), ApiService.create())
-        val factory = MyViewModelFactory(repository)
-        viewModel = ViewModelProvider(this, factory)[MainViewModel::class.java]
 
         initObserver()
 

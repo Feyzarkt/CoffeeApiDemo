@@ -1,13 +1,15 @@
 package com.example.coffeeapidemo.data.repository
 
+import com.example.coffeeapidemo.data.local.CoffeeDAO
 import com.example.coffeeapidemo.data.local.CoffeeDB
 import com.example.coffeeapidemo.data.model.CoffeeResponseItem
 import com.example.coffeeapidemo.data.remote.ApiService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
-class CoffeeRepository(private val coffeeDb: CoffeeDB, private val apiService: ApiService) {
+class CoffeeRepository @Inject constructor(private val coffeeDao: CoffeeDAO, private val apiService: ApiService) {
 
     fun getAllData(callback: (List<CoffeeResponseItem>?)-> Unit) {
         apiService.getCoffeeResult().enqueue(object : Callback<List<CoffeeResponseItem>> {
@@ -19,13 +21,13 @@ class CoffeeRepository(private val coffeeDb: CoffeeDB, private val apiService: A
                     val response = coffeeResponse.body()
                     callback(response)
                     Thread {
-                        response?.let { coffeeDb.coffeeDao().insert(it) }
+                        response?.let { coffeeDao.insert(it) }
                     }.start()
                 }
             }
             override fun onFailure(call: Call<List<CoffeeResponseItem>>, t: Throwable) {
                 Thread {
-                    val coffeeList = coffeeDb.coffeeDao().getAll()
+                    val coffeeList = coffeeDao.getAll()
                     callback(coffeeList)
                 }.start()
             }

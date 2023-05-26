@@ -11,20 +11,4 @@ abstract class CoffeeDB: RoomDatabase() {
 
     abstract fun coffeeDao() : CoffeeDAO
 
-    companion object {
-        @Volatile
-        private var instance: CoffeeDB? = null
-
-        fun getInstance(context: Context): CoffeeDB {
-            return instance ?: synchronized(this) {
-                val database = Room.databaseBuilder(
-                    context.applicationContext,
-                    CoffeeDB::class.java,
-                    "coffee_response_database"
-                ).build()
-                instance = database
-                database
-            }
-        }
-    }
 }
