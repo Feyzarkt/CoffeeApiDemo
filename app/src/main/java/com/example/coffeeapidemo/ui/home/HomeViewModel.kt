@@ -1,4 +1,4 @@
-package com.example.coffeeapidemo.ui
+package com.example.coffeeapidemo.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -9,7 +9,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(private val coffeeRepository: CoffeeRepository): ViewModel() {
+class HomeViewModel @Inject constructor(private val coffeeRepository: CoffeeRepository): ViewModel() {
 
     private val _coffeeData = MutableLiveData<List<CoffeeResponseItem>?>()
     val coffeeData: LiveData<List<CoffeeResponseItem>?> = _coffeeData
