@@ -14,21 +14,11 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private val viewModel: MainViewModel by viewModels()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
 
-        initObserver()
-
         setContentView(binding.root)
-    }
-
-    private fun initObserver() {
-        viewModel.coffeeData.observe(this){ coffeeList->
-            binding.rvCoffee.adapter = coffeeList?.let { CoffeeAdapter(it) }
-        }
     }
 }
