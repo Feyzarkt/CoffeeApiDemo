@@ -1,4 +1,4 @@
-package com.example.coffeeapidemo.ui
+package com.example.coffeeapidemo.ui.home
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +9,7 @@ import com.example.coffeeapidemo.R
 import com.example.coffeeapidemo.data.model.CoffeeResponseItem
 import com.example.coffeeapidemo.databinding.ItemCoffeeBinding
 
-class CoffeeAdapter(private val coffeeList: List<CoffeeResponseItem>) :
+class CoffeeAdapter(private val coffeeList: List<CoffeeResponseItem>, private val onClick: (position: Int) -> Unit) :
     RecyclerView.Adapter<CoffeeAdapter.CoffeeViewHolder>() {
 
     override fun onCreateViewHolder(
@@ -36,6 +36,7 @@ class CoffeeAdapter(private val coffeeList: List<CoffeeResponseItem>) :
         fun bind(coffee: CoffeeResponseItem) {
             val binding = ItemCoffeeBinding.bind(itemView)
             with(binding) {
+                llItem.setOnClickListener { onClick(adapterPosition) }
                 tvCoffeeName.text = coffee.title
                 tvCoffeeDesc.text = coffee.description
                 Glide.with(itemView.context).load(coffee.image).into(ivCoffeeImg)
