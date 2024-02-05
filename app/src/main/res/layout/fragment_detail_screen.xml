@@ -52,14 +52,27 @@
             android:padding="25dp">
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCoffeeDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                tools:text="Desc"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvCoffeeIngredientsTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:layout_marginStart="10dp"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="22sp"
-                android:text="Ingredients"
-                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/ingredients"
+                app:layout_constraintTop_toBottomOf="@id/tvCoffeeDesc"
                 app:layout_constraintStart_toStartOf="parent"/>
 
             <androidx.appcompat.widget.AppCompatTextView

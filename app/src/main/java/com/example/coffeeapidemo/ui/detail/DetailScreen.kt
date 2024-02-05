@@ -31,7 +31,7 @@ class DetailScreen : Fragment() {
         with(binding) {
             Glide.with(requireContext()).load(coffeeItem.image).into(ivBackdrop)
             collapsingToolBar.title = coffeeItem.title
-
+            tvCoffeeDesc.text = coffeeItem.description
             var ingredients = ""
             coffeeItem.ingredients.forEach {
                 ingredients += it + "\n"
