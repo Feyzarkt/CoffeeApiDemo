@@ -23,6 +23,6 @@
             android:id="@+id/action_homeScreen_to_detailScreen"
             app:destination="@id/detailScreen"
             app:popUpTo="@id/homeScreen"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="false" />
     </fragment>
 </navigation>
