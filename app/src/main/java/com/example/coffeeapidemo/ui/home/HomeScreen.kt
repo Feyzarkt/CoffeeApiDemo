@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.coffeeapidemo.databinding.FragmentHomeScreenBinding
+import com.huawei.hms.ads.AdParam
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,6 +23,9 @@ class HomeScreen : Fragment() {
     ): View {
         binding = FragmentHomeScreenBinding.inflate(inflater)
         initObserver()
+
+        val adParam = AdParam.Builder().build()
+        binding.hwBannerView.loadAd(adParam)
 
         return binding.root
     }
