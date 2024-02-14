@@ -1,4 +1,12 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript{
+    dependencies {
+        // Don't forget to add classpath for your build gradle and change gradle plugin version with yours.
+        classpath "com.android.tools.build:gradle:7.2.0"
+        // Add the AppGallery Connect plugin configuration. You are advised to use the latest plugin version.
+        classpath 'com.huawei.agconnect:agcp:1.7.1.300'
+    }
+}
+
 plugins {
     id 'com.android.application' version '7.4.0' apply false
     id 'com.android.library' version '7.4.0' apply false

@@ -4,6 +4,7 @@ plugins {
     id "kotlin-kapt"
     id "com.google.dagger.hilt.android"
     id 'androidx.navigation.safeargs'
+    id 'com.huawei.agconnect'
 }
 
 android {
@@ -77,6 +78,12 @@ dependencies {
     // Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:2.7.6"
     implementation "androidx.navigation:navigation-ui-ktx:2.7.6"
+
+    // Huawei AGC
+    implementation 'com.huawei.agconnect:agconnect-core:1.9.1.300'
+
+    // Huawei Ads Kit
+    implementation 'com.huawei.hms:ads-prime:3.4.69.300'
 }
 
 kapt {
