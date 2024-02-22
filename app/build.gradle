@@ -8,11 +8,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.coffeeapidemo'
+    namespace 'com.hw.coffeeapp'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.example.coffeeapidemo"
+        applicationId "com.hw.coffeeapp"
         minSdk 24
         targetSdk 34
         versionCode 1
