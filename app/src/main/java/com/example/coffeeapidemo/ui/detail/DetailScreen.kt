@@ -5,8 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.example.coffeeapidemo.R
 import com.example.coffeeapidemo.databinding.FragmentDetailScreenBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,6 +27,13 @@ class DetailScreen : Fragment() {
         initUI ()
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            findNavController().navigate(R.id.action_detailScreen_to_homeScreen)
+        }
     }
 
     private fun initUI () {

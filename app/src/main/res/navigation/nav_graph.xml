@@ -6,15 +6,6 @@
     app:startDestination="@id/homeScreen">
 
     <fragment
-        android:id="@+id/detailScreen"
-        android:name="com.example.coffeeapidemo.ui.detail.DetailScreen"
-        android:label="fragment_detail_screen"
-        tools:layout="@layout/fragment_detail_screen" >
-        <argument
-            android:name="item"
-            app:argType="com.example.coffeeapidemo.data.model.CoffeeResponseItem" />
-    </fragment>
-    <fragment
         android:id="@+id/homeScreen"
         android:name="com.example.coffeeapidemo.ui.home.HomeScreen"
         android:label="fragment_home_screen"
@@ -24,5 +15,18 @@
             app:destination="@id/detailScreen"
             app:popUpTo="@id/homeScreen"
             app:popUpToInclusive="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailScreen"
+        android:name="com.example.coffeeapidemo.ui.detail.DetailScreen"
+        android:label="fragment_detail_screen"
+        tools:layout="@layout/fragment_detail_screen" >
+        <argument
+            android:name="item"
+            app:argType="com.example.coffeeapidemo.data.model.CoffeeResponseItem" />
+        <action
+            android:id="@+id/action_detailScreen_to_homeScreen"
+            app:destination="@id/homeScreen" />
     </fragment>
 </navigation>
