@@ -31,17 +31,17 @@
 		"client_id":"1350116894727759552",
 		"client_secret":"C255A820DD528A20B55E7D948083C498F4ABAFC6893492E81199E4403BB915D0",
 		"project_id":"388421841221959303",
-		"app_id":"110352617",
+		"app_id":"110378867",
 		"api_key":"DAEDAKieGuml/FuDF0trtfVl5KWBeHVzcmh4mxFOb11amAeCyfVo9fNLI3cgObxmSrvlSQXEkxAEqIEGdOV9KKIzxEnpFimGvEtbqg==",
-		"package_name":"com.example.coffeeapidemo"
+		"package_name":"com.hw.coffeeapp"
 	},
 	"oauth_client":{
-		"client_id":"110352617",
+		"client_id":"110378867",
 		"client_type":1
 	},
 	"app_info":{
-		"app_id":"110352617",
-		"package_name":"com.example.coffeeapidemo"
+		"app_id":"110378867",
+		"package_name":"com.hw.coffeeapp"
 	},
 	"service":{
 		"analytics":{
@@ -79,17 +79,17 @@
 	"configuration_version":"3.0",
 	"appInfos":[
 		{
-			"package_name":"com.example.coffeeapidemo",
+			"package_name":"com.hw.coffeeapp",
 			"client":{
-				"app_id":"110352617"
+				"app_id":"110378867"
 			},
 			"app_info":{
-				"package_name":"com.example.coffeeapidemo",
-				"app_id":"110352617"
+				"package_name":"com.hw.coffeeapp",
+				"app_id":"110378867"
 			},
 			"oauth_client":{
 				"client_type":1,
-				"client_id":"110352617"
+				"client_id":"110378867"
 			}
 		}
 	]
