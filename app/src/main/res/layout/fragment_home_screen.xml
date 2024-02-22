@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/rvCoffee"
-        hwads:adId="m4s74riaxz"
+        hwads:adId="q4734eu9s0"
         hwads:bannerSize="BANNER_SIZE_320_50" />
 
     <androidx.recyclerview.widget.RecyclerView
